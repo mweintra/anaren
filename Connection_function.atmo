@@ -361,7 +361,7 @@
             "sourceStaticValue": "",
             "arguments": {
               "mapping": {
-                "value": ""
+                "value": "true"
               },
               "targetOrder": [
                 "value"
