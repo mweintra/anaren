@@ -1,0 +1,382 @@
+{
+  "header": {
+    "data": {
+      "order": [
+        "Globals",
+        "Interval",
+        "Connected",
+        "Disconnected",
+        "Setup"
+      ],
+      "Globals": {
+        "name": "Globals",
+        "func": "#include \"callbacks.h\"",
+        "code": "",
+        "close": "//END"
+      },
+      "Interval": {
+        "name": "Interval",
+        "func": "\nvoid interval() {",
+        "code": "",
+        "close": "}"
+      },
+      "Connected": {
+        "name": "Connected",
+        "func": "\nvoid connected() {",
+        "code": " Function3(\"0\",1);",
+        "close": "}"
+      },
+      "Disconnected": {
+        "name": "Disconnected",
+        "func": "\nvoid disconnected() {",
+        "code": "",
+        "close": "}"
+      },
+      "Setup": {
+        "name": "Setup",
+        "func": "\nvoid setup() {",
+        "code": "\tAIR_GPIO_Init();\n\tAIR_UART_Init();\n\tAIR_I2C_Init();\n\tAIR_SPI_Init();\n\tBUZZER_Init();",
+        "close": "}"
+      }
+    },
+    "boardConfiguration": {
+      "ble": {
+        "name": "Bluetooth Low Energy",
+        "file": "ble_config.h",
+        "values": {
+          "localName": {
+            "name": "Local Name",
+            "input": "TextField",
+            "prefix": "#define BLE_LOCAL_NAME \"",
+            "value": "ble_test",
+            "suffix": "\"",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "version": {
+            "name": "Version",
+            "input": "TextField",
+            "prefix": "#define BLE_VERSION \"",
+            "value": "1.00",
+            "suffix": "\"",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "powersave": {
+            "name": "Power Saving",
+            "input": "Combo",
+            "prefix": "#define ",
+            "options": [
+              "BLE_POWERSAVE_OFF",
+              "BLE_POWERSAVE"
+            ],
+            "value": "BLE_POWERSAVE_OFF",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "pairing": {
+            "name": "Pairing",
+            "input": "Combo",
+            "prefix": "#define ",
+            "options": [
+              "BLE_PAIRING_NONE",
+              "BLE_PAIRING_PASSKEY",
+              "BLE_PAIRING_OOB"
+            ],
+            "value": "BLE_PAIRING_NONE",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "txPowerLevel": {
+            "name": "TX Power Level (dbm)",
+            "input": "TextField",
+            "prefix": "#define BLE_TX_POWER_LEVEL ",
+            "value": "4",
+            "regex": "^[0-9]*$"
+          },
+          "intervalFineTimer": {
+            "name": "Interval Timer Length (ms)",
+            "input": "TextField",
+            "prefix": "#define BLE_INTERVAL_FINE_TIMER ",
+            "value": "1000",
+            "regex": "^[0-9]*$"
+          }
+        }
+      },
+      "uart": {
+        "name": "AIR UART Driver",
+        "file": "uart_config.h",
+        "values": {
+          "rxBuffer": {
+            "name": "RX Circular Buffer size",
+            "input": "TextField",
+            "prefix": "#define AIR_UART_RX_CIRCULAR_BUFFER_SIZE ",
+            "value": "128",
+            "regex": "^[0-9]*$"
+          },
+          "txBuffer": {
+            "name": "TX Circular Buffer size",
+            "input": "TextField",
+            "prefix": "#define AIR_UART_TX_CIRCULAR_BUFFER_SIZE ",
+            "value": "128",
+            "regex": "^[0-9]*$"
+          },
+          "buad": {
+            "name": "Baudrate",
+            "input": "Combo",
+            "prefix": "#define ",
+            "options": [
+              "AIR_UART_BAUD_115200",
+              "AIR_UART_BAUD_57600",
+              "AIR_UART_BAUD_9600"
+            ],
+            "value": "AIR_UART_BAUD_115200",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "txPin": {
+            "name": "TX Pin",
+            "input": "Combo",
+            "prefix": "#define AIR_UART_TX_PIN ",
+            "options": [
+              "32"
+            ],
+            "value": "32",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "rxPin": {
+            "name": "RX Pin",
+            "input": "Combo",
+            "prefix": "#define AIR_UART_RX_PIN ",
+            "options": [
+              "33"
+            ],
+            "value": "33",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "rtsPin": {
+            "name": "RTS Pin",
+            "input": "Combo",
+            "prefix": "#define AIR_UART_RTS_PIN ",
+            "options": [
+              "1"
+            ],
+            "value": "1",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          },
+          "ctsPin": {
+            "name": "CTS Pin",
+            "input": "Combo",
+            "prefix": "#define AIR_UART_CTS_PIN ",
+            "options": [
+              "3"
+            ],
+            "value": "3",
+            "regex": "^[a-zA-Z0-9_.]*$"
+          }
+        }
+      }
+    },
+    "meta": {
+      "version": "1.0.0",
+      "layoutGrid": false,
+      "layoutSnapping": false,
+      "layoutSnappingSize": 10,
+      "enableTooltips": true,
+      "enableAutoSave": true,
+      "enableBuildSave": false,
+      "description": null,
+      "project_uuid": null,
+      "tokensEnabled": false,
+      "codeAssist": false,
+      "highlightLine": false,
+      "editorTheme": "Default",
+      "projectType": "bcm920737",
+      "name": "Connection_function"
+    },
+    "type": "Header",
+    "currentLayoutName": "Default"
+  },
+  "layouts": {
+    "Default": {
+      "name": "Default (768x1024)",
+      "width": 768,
+      "height": 1024,
+      "orientation": "portrait",
+      "devicename": ".*",
+      "platform": "",
+      "version": ".*",
+      "elements": {
+        "Button7": {
+          "x": 16,
+          "y": 25,
+          "width": 146,
+          "height": 46
+        },
+        "Label8": {
+          "x": 33,
+          "y": 114,
+          "width": 146,
+          "height": 46
+        },
+        "Slider9": {
+          "x": 12.5,
+          "y": 223,
+          "width": 187,
+          "height": 86
+        }
+      }
+    }
+  },
+  "elements": {
+    "Function3": {
+      "type": "Function",
+      "properties": {
+        "code": "\n\tif(AIR_GPIO_GetMode(13) != AIR_GPIO_OUTPUT_OPEN_DRAIN_NO_PULL)\n\t{\n\t\tAIR_GPIO_SetMode(13, AIR_GPIO_OUTPUT_OPEN_DRAIN_NO_PULL);\n\t}\n\n\tif(data != NULL && length > 0)\n\t{\n\t\tif(data[0] == '1' || data[0] == 't')\n\t\t{\n\t\t\tAIR_GPIO_Write(13, 1);\n\t\t}\n\t\t\n\t\telse if(data[0] == '0' || data[0] == 'f')\n\t\t{\n\t\t\tAIR_GPIO_Write(13, 0);\n\t\t}\n\t\t\n\t\telse\n\t\t{\n\t\t\tbool toggle = !AIR_GPIO_Read(13);\n\t\t\t\n\t\t\tAIR_GPIO_Write(13, toggle);\n\t\t}\n\t}\n\telse\n\t{\n\t\tbool toggle = !AIR_GPIO_Read(13);\n\t\t\n\t\tAIR_GPIO_Write(13, toggle);\n\t}\n\t\n\treturn \"5\";\n\t"
+      },
+      "triggers": {
+        "valueReturned": [
+          {
+            "sourceTrigger": "valueReturned",
+            "sourceValue": "getValue",
+            "targetValue": "setValue",
+            "sourceStaticValue": "",
+            "arguments": {
+              "mapping": {
+                "value": "JSON.stringify(value)"
+              },
+              "targetOrder": [
+                "value"
+              ],
+              "sourceOrder": [
+                "value"
+              ]
+            },
+            "targetName": "Label8"
+          },
+          {
+            "sourceTrigger": "valueReturned",
+            "sourceValue": "getValue",
+            "targetValue": "setValue",
+            "sourceStaticValue": "",
+            "arguments": {
+              "mapping": {
+                "value": "value"
+              },
+              "targetOrder": [
+                "value"
+              ],
+              "sourceOrder": [
+                "value"
+              ]
+            },
+            "targetName": "Slider9"
+          }
+        ]
+      },
+      "zindex": 3,
+      "designer": {
+        "x": 215,
+        "y": 268
+      }
+    },
+    "Button7": {
+      "type": "Button",
+      "properties": {
+        "label": "New Button",
+        "enabled": true,
+        "visible": true
+      },
+      "triggers": {
+        "mousePressed": [
+          {
+            "sourceTrigger": "mousePressed",
+            "sourceValue": "Static",
+            "targetValue": "execute",
+            "sourceStaticValue": "",
+            "arguments": {
+              "mapping": {
+                "value": "true"
+              },
+              "targetOrder": [
+                "value"
+              ],
+              "sourceOrder": []
+            },
+            "targetName": "Function3"
+          }
+        ]
+      },
+      "zindex": 7,
+      "designer": {
+        "x": 41,
+        "y": 276
+      }
+    },
+    "Label8": {
+      "type": "Label",
+      "properties": {
+        "label": "New Label",
+        "enabled": true,
+        "visible": true,
+        "font": "14px Arial",
+        "color": "Black"
+      },
+      "triggers": {},
+      "zindex": 8,
+      "designer": {
+        "x": 342,
+        "y": 275
+      }
+    },
+    "Slider9": {
+      "type": "Slider",
+      "properties": {
+        "value": "0",
+        "maxValue": "20",
+        "minValue": "0",
+        "scaleMarkers": [
+          0,
+          10,
+          10
+        ],
+        "scaleStep": "1",
+        "orientation": "Horizontal",
+        "enabled": true,
+        "visible": true,
+        "showScale": "True",
+        "showTitle": "True"
+      },
+      "triggers": {},
+      "zindex": 9,
+      "designer": {
+        "x": 321,
+        "y": 378
+      }
+    },
+    "Connection10": {
+      "type": "Connection",
+      "properties": {},
+      "triggers": {
+        "connected": [
+          {
+            "sourceTrigger": "connected",
+            "sourceValue": "Static",
+            "targetValue": "execute",
+            "sourceStaticValue": "",
+            "arguments": {
+              "mapping": {
+                "value": ""
+              },
+              "targetOrder": [
+                "value"
+              ],
+              "sourceOrder": []
+            },
+            "targetName": "Function3"
+          }
+        ]
+      },
+      "zindex": 10,
+      "designer": {
+        "x": 42,
+        "y": 184
+      }
+    }
+  }
+}
