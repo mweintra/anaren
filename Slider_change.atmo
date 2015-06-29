@@ -269,12 +269,12 @@
       "type": "Slider",
       "properties": {
         "value": "0",
-        "maxValue": "20",
+        "maxValue": "100",
         "minValue": "0",
         "scaleMarkers": [
           0,
-          10,
-          10
+          50,
+          50
         ],
         "scaleStep": "1",
         "orientation": "Vertical",
